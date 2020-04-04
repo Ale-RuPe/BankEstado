@@ -27,7 +27,7 @@ public class BancosEstadoServiceImpl implements BancosEstadoService {
 		List<Banco> bancos = dao.findBankByState(estado);
 		List<BancoModel> response = bancos.stream().map( this::createBancoModel).collect(Collectors.toList() );
 		if(response.size()==0)
-			throw new NotFoundException("NOT FOUND","service", "${controller.uri}");
+			throw new NotFoundException("${exceptions.message.notfound}","${exceptions.location.service}", "${controller.uri}");
 		log.info("Retrieving response {}",response);
 		
 		return response;

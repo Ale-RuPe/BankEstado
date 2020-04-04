@@ -68,7 +68,7 @@ public class GlobalExceptionHandler {
 		ErrorResponse response = getErrorResponse( 
 				ErrorType.ERROR.toString(), 
 				String.valueOf( HttpStatus.BAD_REQUEST.value()), 
-				"BAD REQUEST", ex.getMessage(), ex.getLocalizedMessage() );
+				"${exceptions.message.badrequest}", ex.getMessage(), ex.getLocalizedMessage() );
 		
 		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 	}
@@ -86,7 +86,7 @@ public class GlobalExceptionHandler {
 		ErrorResponse response = getErrorResponse( 
 					ErrorType.ERROR.toString(), 
 					String.valueOf( HttpStatus.NOT_FOUND.value()), 
-					"NOT FOUND", ex.getRequestURL(), ex.getHttpMethod() );
+					"${exceptions.message.notfound}", ex.getRequestURL(), ex.getHttpMethod() );
 		
 		return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
 	}
